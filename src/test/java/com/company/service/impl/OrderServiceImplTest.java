@@ -3,6 +3,7 @@ package com.company.service.impl;
 import com.company.dataobject.OrderDetail;
 import com.company.dto.OrderDTO;
 import com.company.enums.OrderStatusEnum;
+import com.company.enums.PayStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,8 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by HuDongDong on 2018/11/29.
@@ -78,9 +77,17 @@ public class OrderServiceImplTest {
 
     @Test
     public void finish() {
+        String orderId = "1543479126618695082";
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO result = orderService.finish(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        String orderId = "1543479126618695082";
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO result = orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }
 }
