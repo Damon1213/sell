@@ -1,8 +1,8 @@
 package com.company.dto;
 
 import com.company.dataobject.OrderDetail;
-import com.company.enums.OrderStatusEnum;
-import com.company.enums.PayStatusEnum;
+import com.company.utils.Date2LongSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -38,9 +38,11 @@ public class OrderDTO {
     private Integer payStatus;
 
     /**创建时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /**修改时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     /** 订单详情list. */

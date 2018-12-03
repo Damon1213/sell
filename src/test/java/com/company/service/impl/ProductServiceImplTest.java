@@ -13,8 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by hu on 2018-06-27.
  */
@@ -48,13 +46,13 @@ public class ProductServiceImplTest {
     @Test
     public void save() throws Exception {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("354345678981");
-        productInfo.setProductName("小米手机");
-        productInfo.setProductPrice(new BigDecimal(2699));
-        productInfo.setProductStock(100000);
-        productInfo.setProductDescription("好用就是贵");
-        productInfo.setProductIcon("http://www.baidu.com");
-        productInfo.setProductStatus(0);
+        productInfo.setProductId("354345678989");
+        productInfo.setProductName("vivo nex");
+        productInfo.setProductPrice(new BigDecimal(3499));
+        productInfo.setProductStock(100);
+        productInfo.setProductDescription("全球首款滑盖手机");
+        productInfo.setProductIcon("http://www.vivo.com");
+        productInfo.setProductStatus(1);
         productInfo.setCategoryType(112);
         ProductInfo result = productService.save(productInfo);
         System.out.println(result.toString());
